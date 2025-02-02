@@ -4,6 +4,7 @@ from masks import get_mask_card_number, get_mask_account
 
 
 def mask_account_card(info_in: str) -> str:
+    """Функция делит полученные данные на 2 части и вторую часть маскирует"""
     first_part = ""
     second_part = ""
     for item in info_in:
@@ -18,10 +19,11 @@ def mask_account_card(info_in: str) -> str:
     else:
         second_part_masked = get_mask_account(second_part)
 
-    return first_part + second_part_masked
+    return f"{first_part} + {second_part_masked}"
 
 
 def get_date(long_date: str) -> str:
+    """Функция получает дату в длинном формате и возвращает в коротком"""
     date_obj = datetime.strptime(long_date, "%Y-%m-%dT%H:%M:%S.%f")
     return date_obj.strftime("%d.%m.%Y")
 
