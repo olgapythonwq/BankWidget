@@ -7,7 +7,7 @@ def filter_by_state(list_of_dicts: list[dict], key: str = "EXECUTED") -> list[di
     return selected_list_of_dicts
 
 
-def sort_by_date(list_of_dicts: list[dict], reverse: bool=True) -> list[dict]:
+def sort_by_date(list_of_dicts: list[dict], reverse: bool = True) -> list[dict]:
     """Функция сортирующая транзакции по дате"""
     sorted_list_of_dicts = sorted(list_of_dicts, key=lambda x: x["date"], reverse=reverse)
     return sorted_list_of_dicts
