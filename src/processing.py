@@ -1,15 +1,28 @@
+from datetime import datetime
+
+
 def filter_by_state(list_of_dicts: list[dict], key: str = "EXECUTED") -> list[dict]:
     """Функция фильтрующая транзакции по статусу"""
     selected_list_of_dicts = []
-    for dict in list_of_dicts:
-        if dict["state"] == key:
-            selected_list_of_dicts.append(dict)
+    for dictionary in list_of_dicts:
+        if dictionary["state"] == key:
+            selected_list_of_dicts.append(dictionary)
     return selected_list_of_dicts
 
 
 def sort_by_date(list_of_dicts: list[dict], reverse: bool = True) -> list[dict]:
     """Функция сортирующая транзакции по дате"""
-    sorted_list_of_dicts = sorted(list_of_dicts, key=lambda x: x["date"], reverse=reverse)
+    date_format = "%Y-%m-%dT%H:%M:%S.%f"
+    for dictionary in list_of_dicts:
+        if "date" not in dictionary or dictionary["date"] == "":
+            raise ValueError("Дата отсутствует")
+        try:
+            datetime.strptime(dictionary["date"], date_format)
+        except ValueError:
+            raise ValueError("Неверный формат даты")
+    sorted_list_of_dicts = sorted(list_of_dicts,
+                                  key=lambda x: datetime.strptime(x["date"], date_format),
+                                  reverse=reverse)
     return sorted_list_of_dicts
 
 

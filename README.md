@@ -49,6 +49,16 @@ executed_transactions = filter_by_state(transactions)
 # Пример использования sort_by_date
 sorted_transactions = sort_by_date(transactions)
 ```
+## <a id="title1">Тестирование</a>
+
+Все тесты находятся в пакете tests. Фикстуры вынесены в файл conftest.py. Процент покрытия тестами находится в файле 
+index.html (можно открыть в браузере). Тестирование проводилось с использованием библиотеки pytest.
+
+Для запуска тестов выполните команду:
+```bash
+pytest
+```
+
 
 ## <a id="title1">Вклад</a>
 
