@@ -53,7 +53,7 @@ def filter_by_currency(transactions: list[dict], currency: str = 'USD') -> Gener
     """Функция, принимающая список транзакций и возвращающая генератор,
         который поочередно возвращает транзакции с указанной валютой"""
     for transaction in transactions:
-        if transaction.get("operationAmount").get("currency").get("code") == currency:
+        if transaction.get("operationAmount", {}).get("currency", {}).get("code") == currency:
             yield transaction
 
 
