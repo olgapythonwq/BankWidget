@@ -1,8 +1,9 @@
 import os
 from unittest.mock import patch
-from src.external_api import calculate_amount_of_transaction
+
 from dotenv import load_dotenv
 
+from src.external_api import calculate_amount_of_transaction
 
 load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))  # Загрузка переменных из .env-файла
 API_KEY = os.getenv('API_KEY')
