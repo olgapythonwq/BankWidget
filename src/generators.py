@@ -1,4 +1,4 @@
-from typing import Any, Dict, Generator, Optional
+from typing import Generator
 
 list_of_transactions = [
     {
@@ -73,30 +73,31 @@ def card_number_generator(start: int, stop: int) -> Generator:
         yield " ".join([card_number[i:i + 4] for i in range(0, 16, 4)])
 
 
-usd_transactions = filter_by_currency(list_of_transactions, "USD")
-for index in range(2):
-    print(next(usd_transactions))
-
-
-descriptions = transaction_descriptions(list_of_transactions)
-for i in range(3):
-    try:
-        print(next(descriptions))
-    except StopIteration:
-        print("Нет транзакций.")
-
-
-for new_card_number in card_number_generator(1, 5):
-    print(new_card_number)
-
-
-for new_card_number in card_number_generator(6, 10):
-    print(new_card_number)
-
-
-chf_transactions = filter_by_currency(list_of_transactions, "CHF")
-for index in range(1):
-    try:
-        print(next(chf_transactions))
-    except StopIteration:
-        print("Нет транзакций.")
+# if __name__ == '__main__':
+#     usd_transactions = filter_by_currency(list_of_transactions, "USD")
+#     for index in range(2):
+#         print(next(usd_transactions))
+#
+#
+#     descriptions = transaction_descriptions(list_of_transactions)
+#     for i in range(3):
+#         try:
+#             print(next(descriptions))
+#         except StopIteration:
+#             print("Нет транзакций.")
+#
+#
+#     for new_card_number in card_number_generator(1, 5):
+#         print(new_card_number)
+#
+#
+#     for new_card_number in card_number_generator(6, 10):
+#         print(new_card_number)
+#
+#
+#     chf_transactions = filter_by_currency(list_of_transactions, "CHF")
+#     for index in range(1):
+#         try:
+#             print(next(chf_transactions))
+#         except StopIteration:
+#             print("Нет транзакций.")
