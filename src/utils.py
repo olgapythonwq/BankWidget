@@ -42,5 +42,5 @@ def get_operations(path: str) -> list[dict]:
         return []
 
 
-if __name__ == '__main__':
-    print(get_operations(json_path))
+# if __name__ == '__main__':
+#     print(get_operations(json_path))
